@@ -1,4 +1,9 @@
-// MAKE ROUNDED EDGES FOR PIE CHARTS
+//Declaracion de variables globales con los resultados
+var resultado1=300;
+var resultado2=50;
+var resultado3=100;
+
+//Uso de charts para estadisticas
 Chart.defaults.RoundedDoughnut    = Chart.helpers.clone(Chart.defaults.doughnut);
 Chart.controllers.RoundedDoughnut = Chart.controllers.doughnut.extend({
     draw: function(ease) {
@@ -35,97 +40,6 @@ Chart.controllers.RoundedDoughnut = Chart.controllers.doughnut.extend({
     }
 });
 
-
-// EXAMPLE 1
-var ctx1 = document.getElementById("pieChart1");
-var pieChart1 = new Chart(ctx1, {
-    type: 'RoundedDoughnut',
-    options: {
-        cutoutPercentage: 75,
-        legend: {
-            position: 'left',
-            labels: {
-                boxWidth: 10,
-                fontStyle: 'italic',
-                fontColor: '#aaa',
-                usePointStyle: true,
-            }
-        },
-
-    },
-    data: {
-        labels: [
-            "First",
-            "Second",
-            "Third",
-            "Fourth"
-        ],
-        datasets: [
-            {
-                data: [250, 100, 100, 200],
-                borderWidth: 0,
-                backgroundColor: [
-                    '#e63a54',
-                    '#d8f4ff',
-                    "#110f48",
-                    "#f8f8fa"
-                ],
-                hoverBackgroundColor: [
-                    '#e63a54',
-                    '#d8f4ff',
-                    "#110f48",
-                    "#f8f8fa"
-                ]
-            }]
-        }
-    });
-
-
-// EXAMPLE 2
-var ctx2 = document.getElementById("pieChart2");
-var pieChart2 = new Chart(ctx2, {
-    type: 'pie',
-    options: {
-        legend: {
-            position: 'left',
-            labels: {
-                boxWidth: 10,
-                fontStyle: 'italic',
-                fontColor: '#aaa',
-                usePointStyle: true,
-            }
-        },
-    },
-    data: {
-        labels: [
-            "First",
-            "Second",
-            "Third",
-            "Fourth"
-        ],
-        datasets: [
-            {
-                data: [300, 50, 100, 80],
-                borderWidth: 0,
-                backgroundColor: [
-                    '#44b2d7',
-                    "#59c2e6",
-                    "#71d1f2",
-                    "#96e5ff"
-                ],
-                hoverBackgroundColor: [
-                    '#44b2d7',
-                    "#59c2e6",
-                    "#71d1f2",
-                    "#96e5ff"
-                ]
-            }]
-        }
-    });
-
-
-
-// EXAMPLE 3
 var ctx3 = document.getElementById("pieChart3");
 var pieChart3 = new Chart(ctx3, {
     type: 'pie',
@@ -142,14 +56,15 @@ var pieChart3 = new Chart(ctx3, {
     },
     data: {
         labels: [
-            "First",
-            "Second",
-            "Third"
+            "Resultado 1",
+            "Resultado 2",
+            "Resultado 3"
         ],
         datasets: [
             {
-                data: [300, 50, 100],
-                borderWidth: 7,
+                //Cargar las variables
+                data: [this.resultado1, this.resultado2, this.resultado3],
+                borderWidth: 3,
                 backgroundColor: [
                     '#46d8d5',
                     "#182390",
@@ -162,191 +77,4 @@ var pieChart3 = new Chart(ctx3, {
                 ]
             }]
         }
-    });
-
-
-
-// EXAMPLE 4
-var ctx4 = document.getElementById("pieChart4");
-var pieChart4 = new Chart(ctx4, {
-    type: 'RoundedDoughnut',
-    options: {
-        cutoutPercentage: 70,
-        legend: {
-            position: 'left',
-            labels: {
-                boxWidth: 10,
-                fontStyle: 'italic',
-                fontColor: '#aaa',
-                usePointStyle: true,
-            }
-        },
-
-    },
-    data: {
-        labels: [
-            "First",
-            "Second",
-            "Third",
-            "Fourth"
-        ],
-        datasets: [
-            {
-                data: [250, 100, 100, 200],
-                borderWidth: 5,
-                backgroundColor: [
-                    '#615dff',
-                    '#ffb0d0',
-                    "#ff8bb9",
-                    "#f8f8fa"
-                    ],
-                    hoverBackgroundColor: [
-                        '#615dff',
-                        '#ffb0d0',
-                        "#ff8bb9",
-                        "#f8f8fa"
-                    ]
-                }]
-            }
-        });
-
-
-// EXAMPLE 5
-var ctx5 = document.getElementById("pieChart5");
-var pieChart5 = new Chart(ctx5, {
-    type: 'pie',
-    options: {
-        cutoutPercentage: 50,
-        legend: {
-            position: 'left',
-            labels: {
-                boxWidth: 10,
-                fontStyle: 'italic',
-                fontColor: '#aaa',
-                usePointStyle: true,
-            }
-        },
-    },
-    data: {
-        labels: [
-            "First",
-            "Second",
-        ],
-        datasets: [
-            {
-                data: [300, 50],
-                borderWidth: 2,
-                borderColor: [
-                    '#46d8d5',
-                    "#f5e132",
-                ],
-                backgroundColor: [
-                    'rgba(70, 215, 212, 0.22)',
-                    "rgba(245, 225, 50, 0.23)",
-                ],
-                hoverBackgroundColor: [
-                    '#46d8d5',
-                    "#f5e132",
-                ]
-            }]
-        }
-    });
-
-
-
-// EXAMPLE 6
-var ctx6 = document.getElementById("pieChart6");
-var pieChart6 = new Chart(ctx6, {
-    type: 'pie',
-    options: {
-        rotation: -20,
-        cutoutPercentage: 10,
-        animation: {
-            animateScale: true,
-        },
-        legend: {
-            position: 'left',
-            borderAlign: 'inner',
-            labels: {
-                boxWidth: 10,
-                fontStyle: 'italic',
-                fontColor: '#aaa',
-                usePointStyle: true,
-            }
-        },
-    },
-    data: {
-        labels: [
-            "First",
-            "Second",
-        ],
-        datasets: [
-            {
-                data: [300, 120],
-                borderWidth: 2,
-                backgroundColor: [
-                    'rgba(70, 215, 212, 0.2)',
-                    "rgba(245, 225, 50, 0.2)",
-                ],
-                borderColor: [
-                    '#46d8d5',
-                    "#f5e132",
-                ],
-                hoverBackgroundColor: [
-                    '#46d8d5',
-                    "#f5e132",
-                ]
-            }]
-        }
-    });
-
-
-
-// EXAMPLE 7
-var ctx7 = document.getElementById("pieChart7").getContext('2d');
-    var pieChart7 = new Chart(ctx7, {
-    type: 'RoundedDoughnut',
-    options: {
-        cutoutPercentage: 92,
-        borderAlign: 'center',
-        animation: {
-            duration: 2000,
-            easing: 'linear'
-        },
-        legend: {
-            position: 'top',
-            labels: {
-                padding: 10,
-                fontStyle: 'italic',
-                fontColor: '#333',
-                usePointStyle: true,
-            }
-        },
-    },
-    data: {
-        labels: [
-            "First",
-            "Second",
-            "Third",
-            "Fourth",
-        ],
-        datasets: [
-            {
-                data: [120, 50, 80, 140],
-                borderWidth: 6,
-                borderColor: '#fff',
-                backgroundColor: [
-                    '#f9d65c',
-                    "#a9d876",
-                    "#39be83",
-                    "#0e8a73",
-                ],
-                hoverBackgroundColor: [
-                    '#f9d65c',
-                    "#a9d876",
-                    "#39be83",
-                    "#0e8a73",
-                ]
-            }]
-        },
     });
