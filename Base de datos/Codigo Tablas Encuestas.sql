@@ -70,7 +70,7 @@ CREATE TABLE personas (
 CREATE TABLE personas_preguntas_respuestas (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     fecha DATE,
-    intenti BIGINT,
+    intento BIGINT,
     terminado BOOLEAN,
     cedula_persona BIGINT,
     idPreguntasRespuestas BIGINT

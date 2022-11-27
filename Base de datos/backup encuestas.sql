@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2022 a las 01:07:37
+-- Tiempo de generación: 27-11-2022 a las 01:10:53
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -121,7 +121,7 @@ CREATE TABLE `personas` (
 CREATE TABLE `personas_preguntas_respuestas` (
   `id` bigint(20) NOT NULL,
   `fecha` date DEFAULT NULL,
-  `intenti` bigint(20) DEFAULT NULL,
+  `intento` bigint(20) DEFAULT NULL,
   `terminado` tinyint(1) DEFAULT NULL,
   `cedula_persona` bigint(20) DEFAULT NULL,
   `idPreguntasRespuestas` bigint(20) DEFAULT NULL
