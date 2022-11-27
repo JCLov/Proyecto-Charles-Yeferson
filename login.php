@@ -10,12 +10,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="bootstrap-5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style_login.css">
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="css/style_login.css">        
     </head>
     <body>
         <main>
             <div class="container">
-                
                 <div class="container py-2 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -44,7 +44,20 @@
                                         <p class="mb-0">¿Aun no tienes cuenta? <a href="register.php" class="text-white-50 fw-bold">Regístrate</a>
                                         </p>
                                     </div>
+                                    <?php 
 
+                                    if(isset($_GET['registro'])){
+                                        if($_GET['registro'] == 1){
+                                            
+                                            ?> <label><span class = "requerido">Registro Existoso</span></label> <?php 
+
+                                        }else{
+                                            ?> <label><span class = "requerido">Fallo el registro</span></label> <?php 
+
+                                        }
+                                    }
+
+                                    ?>                                    
                                 </div>
                             </div>
                         </div>
