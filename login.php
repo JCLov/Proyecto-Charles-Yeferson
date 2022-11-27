@@ -28,12 +28,12 @@
 
                                         <form action="">
                                             <div class="form-outline form-white mb-4">
-                                                <input type="text" id="usuario" class="form-control form-control-lg" />
+                                                <input type="text" id="usuario" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="usuario">Usuario</label>
                                             </div>
 
                                             <div class="form-outline form-white mb-4">
-                                                <input type="password" id="inputClave" class="form-control form-control-lg" />
+                                                <input type="password" id="inputClave" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="inputClave">Contraseña</label>
                                             </div>
 

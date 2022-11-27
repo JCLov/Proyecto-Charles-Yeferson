@@ -17,34 +17,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 mx-auto">
-                        <div class="card shadow border-0 mb-5">
+                        <div class="card shadow-5-strong bg-dark text-white mb-5" style="border-radius: 1rem;">
                             <div class="card-body p-5">
                                 <h2 class="h4 mb-1">Pregunta</h2>
                                 <p class="small text-muted font-italic mb-4">Instruccion o numero de pregunta</p>
                                 <ul class="list-group">
-                                    <li class="list-group-item rounded-0 d-flex align-items-center justify-content-between">
+                                    <li class="list-group-item rounded-0 d-flex align-items-center justify-content-between bg-body text-white" style="border: 1px solid white">
                                         <div class="custom-control custom-radio">
                                         <input class="custom-control-input" id="customRadio1" type="radio" name="customRadio">
                                         <label class="custom-control-label" for="customRadio1">
-                                            <p class="mb-0">Opcion1</p><span class="small font-italic text-muted">Classic marinara sauce, authentic old-world pepperoni</span>
+                                            <p class="mb-0">Opcion1</p><span class="small font-italic text-muted">Descripcion Respuesta</span>
                                         </label>
                                         </div>
                                         <label for="customRadio1"><img src="https://i.postimg.cc/Hsq4Ygss/1-ezgo0i.png" alt="" width="60"></label>
                                     </li>
-                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                    <li class="list-group-item d-flex align-items-center justify-content-between bg-body text-white" style="border: 1px solid white">
                                         <div class="custom-control custom-radio">
                                         <input class="custom-control-input" id="customRadio2" type="radio" name="customRadio">
                                         <label class="custom-control-label" for="customRadio2">
-                                            <p class="mb-0">Opcion2</p><span class="small font-italic text-muted">Classic marinara sauce, authentic old-world pepperoni</span>
+                                            <p class="mb-0">Opcion2</p><span class="small font-italic text-muted">Descripcion Respuesta</span>
                                         </label>
                                         </div>
                                         <label for="customRadio2"><img src="https://i.postimg.cc/zf5ChFgs/2-rqo4zs.gif" alt="" width="60"></label>
                                     </li>
-                                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                                    <li class="list-group-item d-flex align-items-center justify-content-between bg-body text-white" style="border: 1px solid white">
                                         <div class="custom-control custom-radio">
                                         <input class="custom-control-input" id="customRadio3" type="radio" name="customRadio">
                                         <label class="custom-control-label" for="customRadio3">
-                                            <p class="mb-0">Opcion3</p><span class="small font-italic text-muted">Classic marinara sauce, authentic old-world pepperoni</span>
+                                            <p class="mb-0">Opcion3</p><span class="small font-italic text-muted">Descripcion Respuesta</span>
                                         </label>
                                         </div>
                                         <label for="customRadio3"><img src="https://i.postimg.cc/Jnzj67KK/4-t444fl.png" alt="" width="60"></label>
