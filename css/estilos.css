@@ -1,4 +1,11 @@
 .requerido{
 	color:red;
 	padding-left: 3px;
+	font-weight: bold;
+}
+
+.exitoso{
+	color:green;
+	padding-left: 3px;
+	font-weight: bold;
 }

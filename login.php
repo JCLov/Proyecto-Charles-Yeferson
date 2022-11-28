@@ -45,18 +45,16 @@
                                         </p>
                                     </div>
                                     <?php 
+                                        if(isset($_GET['registro'])){
+                                            if($_GET['registro'] == 1){
+                                                
+                                                ?> <div class="mt-md-2"><label><span class = "exitoso">Registro Existoso</span></label></div> <?php 
 
-                                    if(isset($_GET['registro'])){
-                                        if($_GET['registro'] == 1){
-                                            
-                                            ?> <label><span class = "requerido">Registro Existoso</span></label> <?php 
+                                            }else{
+                                                ?> <div class="mt-md-2"><label><span class = "requerido">Fallo el registro</span></label></div> <?php 
 
-                                        }else{
-                                            ?> <label><span class = "requerido">Fallo el registro</span></label> <?php 
-
+                                            }
                                         }
-                                    }
-
                                     ?>                                    
                                 </div>
                             </div>

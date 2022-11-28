@@ -13,7 +13,7 @@ function addOptions(domElement, array) {
 
 function cargarTipoInstitucion() {
     var array = ["", "Publica", "Privada"];
-    addOptions("tipoInstitucion", array);
+    //addOptions("tipoInstitucion", array);
 }
 
 function cargarInstitucion() {
