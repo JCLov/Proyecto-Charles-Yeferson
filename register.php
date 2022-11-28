@@ -165,7 +165,6 @@
                                                 <input type="text" id="usuario" name="usuario" class="form-control" required/>
                                                 <label class="form-label" for="usuario">Usuario</label>
                                             </div>
-                                            <!-- Password input -->
                                             <div class="form-outline mb-4 col-md-6">
                                                 <input type="password" id="clave" name="clave" class="form-control" required/>
                                                 <label class="form-label" for="clave">Contraseña</label>
@@ -175,7 +174,7 @@
                                         <div class="row">
                                             <div class="col-md-4 mb-4">
                                                 <div class="form-outline">
-                                                    <select name="rol" id="rol" name="rol" class="form-select" aria-label="Default select example">
+                                                    <select name="rol" id="rol" name="rol" class="form-select" aria-label="Default select example" onchange="usuarioAdmin()">
                                                         <<?php 
 
                                                             include("funciones/abrir_conexion.php");
@@ -199,14 +198,12 @@
                                                 <input type="text" id="verificarUsuario" name="verificarUsuario" class="form-control" disabled/>
                                                 <label class="form-label" for="verificarUsuario">Verificacion: Usuario</label>
                                             </div>
-                                            <!-- Password input -->
                                             <div class="form-outline mb-4 col-md-4">
                                                 <input type="password" id="verificarClave" name="verificarClave" class="form-control" disabled/>
                                                 <label class="form-label" for="verificarClave">Verificacion: Contraseña</label>
                                             </div>
                                         </div>
 
-                                        <!-- Submit button -->
                                         <button type="submit" name="registrar" value="1" class="btn btn-outline-light btn-lg px-5 mb-4">
                                             Registrar
                                         </button>
@@ -219,6 +216,32 @@
                 </section>   
             </div>
         </main>
+        <footer class="site-footer mt-5 pt-5 pb-3">
+            <div class="container">
+                <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <h6>Acerca de nosotros</h6>
+                    <p class="text-justify">Test para emprendedores es una iniciativa para ayudar a jóvenes a orientar su futuro. Nos centramos en aportar herramientas y conocimientos adaptados a las necesidades de cada individuo. Mediante nuestro test, te ayudaremos a enfocar tus emprendimientos tomando en cuenta tus fortalezas, capacidades y conocimientos</p>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <h6>Links externos</h6>
+                    <ul class="footer-links">
+                    <li><a href="login.php">Acerca de nosotros</a></li>
+                    <li><a href="http://me.gob.ve/">MPPE</a></li>
+                    <li><a href="https://uptaivirtualsarec.com/">UPTAIT</a></li>
+                    </ul>
+                </div>
+                </div>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; Test para Emprendedores</p>
+                </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
-<!-- <script src="js/register.js"></script> -->
+<script src="js/register.js"></script>

@@ -1,3 +1,24 @@
+function usuarioAdmin(){
+    var rol = document.getElementById('rol')
+    var usuarioInput = document.getElementById('verificarUsuario')
+    var claveInput = document.getElementById('verificarClave')
+    var rolSelec = rol.value
+    usuarioInput.value=""
+    claveInput.value=""
+
+    if (rolSelec === "1"){
+        usuarioInput.removeAttribute("disabled")
+        usuarioInput.setAttribute("required","true")
+        claveInput.removeAttribute("disabled")
+        claveInput.setAttribute("required","true")
+    }else{
+        usuarioInput.removeAttribute("required")
+        usuarioInput.setAttribute("disabled","true")
+        claveInput.removeAttribute("required")
+        claveInput.setAttribute("disabled","true")
+    }
+}
+/*
 //Función para agregar opciones a un <select>.
 function addOptions(domElement, array) {
     var selector = document.getElementsByName(domElement)[0];
@@ -68,24 +89,4 @@ function cargarMunicipio() {
       addOptions("municipio", array);
     }
 }
-
-function usuarioAdmin(){
-    var rol = document.getElementById('rol')
-    var usuarioInput = document.getElementById('verificarUsuario')
-    var claveInput = document.getElementById('verificarClave')
-    var rolSelec = rol.value
-    usuarioInput.value=""
-    claveInput.value=""
-
-    if (rolSelec === "2"){
-        usuarioInput.removeAttribute("disabled")
-        usuarioInput.setAttribute("required","true")
-        claveInput.removeAttribute("disabled")
-        claveInput.setAttribute("required","true")
-    }else{
-        usuarioInput.removeAttribute("required")
-        usuarioInput.setAttribute("disabled","true")
-        claveInput.removeAttribute("required")
-        claveInput.setAttribute("disabled","true")
-    }
-}
+*/

@@ -19,8 +19,8 @@
             include("funciones/consultas.php");
         ?>
         <main>
-            <div class="container">
-                <div class="container py-2 h-100">
+            <div class="container pb-5 py-5">
+                <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                             <div class="card bg-dark text-white" style="border-radius: 1rem;">
@@ -72,5 +72,31 @@
                 </div>
             </div>
         </main>
+        <footer class="site-footer mt-5 pt-5 pb-3">
+            <div class="container">
+                <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <h6>Acerca de nosotros</h6>
+                    <p class="text-justify">Test para emprendedores es una iniciativa para ayudar a jóvenes a orientar su futuro. Nos centramos en aportar herramientas y conocimientos adaptados a las necesidades de cada individuo. Mediante nuestro test, te ayudaremos a enfocar tus emprendimientos tomando en cuenta tus fortalezas, capacidades y conocimientos</p>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <h6>Links externos</h6>
+                    <ul class="footer-links">
+                    <li><a href="#!">Acerca de nosotros</a></li>
+                    <li><a href="http://me.gob.ve/">MPPE</a></li>
+                    <li><a href="https://uptaivirtualsarec.com/">UPTAIT</a></li>
+                    </ul>
+                </div>
+                </div>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; Test para Emprendedores</p>
+                </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
