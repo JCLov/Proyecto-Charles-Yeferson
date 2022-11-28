@@ -37,6 +37,11 @@ CREATE TABLE tipo_preguntas (
     descripcion VARCHAR(100)
 );
 
+CREATE TABLE tipo_respuestas (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100)
+);
+
 CREATE TABLE preguntas (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     descripcion VARCHAR(100),
@@ -45,7 +50,8 @@ CREATE TABLE preguntas (
 
 CREATE TABLE respuestas (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    descripcion VARCHAR(100)
+    descripcion VARCHAR(100),
+    idTipoRespuesta BIGINT
 );
 
 CREATE TABLE preguntas_respuestas (
@@ -134,6 +140,7 @@ ALTER TABLE institucion ADD CONSTRAINT FK_TIN_INS FOREIGN KEY (idTipoInstitucion
 ALTER TABLE municipio ADD CONSTRAINT FK_EST_MUN FOREIGN KEY (idEstado) REFERENCES estado(id);
 
 ALTER TABLE preguntas ADD CONSTRAINT FK_TPR_PRE FOREIGN KEY (idTipoPregunta) REFERENCES tipo_preguntas(id);
+ALTER TABLE respuestas ADD CONSTRAINT FK_TRE_RES FOREIGN KEY (idTipoRespuesta) REFERENCES tipo_respuestas(id);
 ALTER TABLE preguntas_respuestas ADD CONSTRAINT FK_PRE_PRERES FOREIGN KEY (idPregunta) REFERENCES preguntas(id);
 ALTER TABLE preguntas_respuestas ADD CONSTRAINT FK_RES_PRERES FOREIGN KEY (idRespuesta) REFERENCES respuestas(id);
 

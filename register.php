@@ -15,6 +15,7 @@
     </head>
     <body>
         <?php             
+            include("funciones/funcionesPHP.php");
             include("funciones/consultas.php");
         ?>
         <main>

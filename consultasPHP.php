@@ -72,9 +72,9 @@
                 header('location:login.php?error=1&existe='.$existeUsuario);
             }else{
                 include("funciones/cerrar_conexion.php");
-                header('location:preguntasFormulario.php?existe='.$existeUsuario);
+                header('location:preguntasFormulario.php?tipo=1');
             }
-            
+
         }        
     }
 

@@ -14,6 +14,10 @@
         <link rel="stylesheet" href="css/style_login.css">        
     </head>
     <body>
+        <?php
+            include("funciones/funcionesPHP.php");
+            include("funciones/consultas.php");
+        ?>
         <main>
             <div class="container">
                 <div class="container py-2 h-100">
