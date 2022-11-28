@@ -1,7 +1,8 @@
 <?php
     include("funciones/funcionesPHP.php");
     include("funciones/consultas.php");
-    if(isset($_POST['cedula']) && isset($_POST['usuario']) && isset($_POST['clave'])){
+    if(isset($_POST['registrar'])){
+        if(isset($_POST['cedula']) && isset($_POST['usuario']) && isset($_POST['clave'])){
 
         include("funciones/abrir_conexion.php");
 
@@ -11,7 +12,7 @@
 
         $cedula = $_POST['cedula'];
         $nombres = $_POST['nombres']; 
-        
+
 
         $consultarExisteUsuario = mysqli_query($conexion,consultaExisteUsuario($usuario));
         $existeUsuario = mysqli_num_rows($consultarExisteUsuario);
@@ -53,9 +54,28 @@
                   
         }     
 
-    }else{
-        include("funciones/cerrar_conexion.php");
-        header('location:login.php?registro=2');
+        }else{
+            include("funciones/cerrar_conexion.php");
+            header('location:login.php?registro=2');
+        }
+    }else if(isset($_POST['ingresar'])){
+
+        if(isset($_POST['usuario']) && isset($_POST['clave'])){
+
+            include("funciones/abrir_conexion.php");
+            $usuario = $_POST['usuario'];
+            $clave = $_POST['clave'];
+            $consultarExisteUsuario = mysqli_query($conexion,consultaUsuario($usuario,$clave));
+            $existeUsuario = mysqli_num_rows($consultarExisteUsuario);
+            if($existeUsuario == 0){
+                include("funciones/cerrar_conexion.php");
+                header('location:login.php?error=1&existe='.$existeUsuario);
+            }else{
+                include("funciones/cerrar_conexion.php");
+                header('location:preguntasFormulario.php?existe='.$existeUsuario);
+            }
+            
+        }        
     }
 
 ?>

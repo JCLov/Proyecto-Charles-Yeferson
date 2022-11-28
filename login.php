@@ -26,18 +26,18 @@
                                         <h2 class="fw-bold mb-2">Test de Emprendedores</h2>
                                         <p class="text-white-50 mb-5">Bienvenid@, introduzca su usuario y contraseña</p>
 
-                                        <form action="">
+                                        <form action="consultasPHP.php" method="post" name="formulario">
                                             <div class="form-outline form-white mb-4">
-                                                <input type="text" id="usuario" class="form-control form-control-lg" required/>
+                                                <input type="text" id="usuario" name="usuario" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="usuario">Usuario</label>
                                             </div>
 
                                             <div class="form-outline form-white mb-4">
-                                                <input type="password" id="inputClave" class="form-control form-control-lg" required/>
+                                                <input type="password" id="inputClave" name="clave" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="inputClave">Contraseña</label>
                                             </div>
 
-                                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                            <button class="btn btn-outline-light btn-lg px-5" type="submit" name="ingresar" value="1">Login</button>
                                         </form>
                                     </div>
                                     <div>
@@ -53,6 +53,11 @@
                                             }else{
                                                 ?> <div class="mt-md-2"><label><span class = "requerido">Fallo el registro</span></label></div> <?php 
 
+                                            }
+                                        }else if(isset($_GET['error'])){
+                                            if($_GET['error'] == 1){
+                                                
+                                                ?> <div class="mt-md-2"><label><span class = "requerido">Usuario o Contraseña equivocada</span></label></div> <?php 
                                             }
                                         }
                                     ?>                                    

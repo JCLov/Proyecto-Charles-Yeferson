@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registrarse</title>
         <link rel="stylesheet" type="text/css" href="bootstrap-5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="css/style_login.css">
     </head>
     <body>
@@ -25,7 +26,7 @@
                                 <div class="">
                                     <h2 class="fw-bold mb-5">Regístrate ahora</h2>
 
-                                    <form name="formulario" method="post" action="registrarPersona.php">
+                                    <form name="formulario" method="post" action="consultasPHP.php">
                                         <div class="row">
                                             <div class="col-md-4 mb-4">
                                                 <div class="form-outline">
