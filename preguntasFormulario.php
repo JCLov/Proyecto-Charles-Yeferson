@@ -1,7 +1,10 @@
 <?php
-    //Imports y session start
-    //Verificar si ya hay una sesion abierta
-    //Si no tiene sesion, session destroy y que vuelva a esta pagina
+    include("funciones/abrir_conexion.php");
+    include("funciones/cerrar_conexion.php");
+    session_start();
+    if(!isset($_SESSION["login"])){
+        header('location:login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,15 +23,26 @@
         ?>
         <main>
             <div class="container">
-                <form action="">
+                <?php 
+                    if(isset($_GET['tipo'])){
+                        $tipo = $_GET['tipo'];
+                        if($tipo < 3){
+                            $direccion = "preguntasFormulario.php?tipo=".($tipo+1);
+                        }else{
+                            $direccion = "respuestas.php";
+                        }
+                    }else{
+                        header('location:preguntasFormulario.php?tipo=1');
+                    } 
+                ?>
+                <form action="<?php echo $direccion; ?>" method="post" name="formularioPreguntas">
                     <div class="row">
-    
+
                         <?php 
     
                             if(isset($_GET['tipo'])){
     
                                 include("funciones/abrir_conexion.php");
-                                $tipo = $_GET['tipo'];
                                 $consultaPregunta = mysqli_query($conexion,consultarPreguntas($tipo));
                                 $existePregunta = mysqli_num_rows($consultaPregunta);
                                 $contPreguntas = 0;
@@ -51,8 +65,8 @@
                                                         ?>
                                                             <li class="list-group-item rounded-0 d-flex align-items-center justify-content-between bg-body text-white" style="border: 1px solid white">
                                                                 <div class="custom-control custom-radio">
-                                                                <input class="custom-control-input" id="customRadio" type="radio" name="customRadio" name="check-<?php echo $resultadoRespuestas['idpr'] ?>">
-                                                                <label class="custom-control-label" for="customRadio1">
+                                                                <input class="custom-control-input" id="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>" type="radio" name="radiobutton<?php echo $contPreguntas; ?>" value="<?php echo $resultadoRespuestas['idpr']; ?>">
+                                                                <label class="custom-control-label" for="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>">
                                                                     <p class="mb-0"><?php echo $resultadoRespuestas['respuestadescripcion'] ?></p><span class="small font-italic text-muted">Descripcion Respuesta</span>
                                                                 </label>
                                                                 </div>
@@ -72,14 +86,9 @@
                                 }
     
                                 include("funciones/cerrar_conexion.php");
-                            }else{
-                                header('location:preguntasFormulario.php?tipo=1');
-                            }
-                                    
+                            }                       
     
-                        ?>                  
-    
-    
+                        ?>   
                     </div>
                     <div class="row pt-4">
                         <div class="col-lg-auto col-md-auto col-sm-auto mb-4 mx-auto">

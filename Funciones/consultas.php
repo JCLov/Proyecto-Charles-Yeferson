@@ -15,6 +15,11 @@
 		return "SELECT * FROM personas WHERE cedula = '$cedula';";
 	}
 
+	//consulta para saber si existe persona con el id usuario
+	function consultaPersonaPorUsuario($idUsuario){
+		return "SELECT * FROM personas WHERE idUsuario = '$idUsuario';";
+	}
+
 	//consulta un usuario por su usuario y contraseña
 	function consultaUsuario($user, $pass){
 		return "SELECT * FROM usuario WHERE user = '$user' and pass = '$pass';";
