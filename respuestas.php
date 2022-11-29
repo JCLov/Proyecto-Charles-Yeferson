@@ -18,6 +18,58 @@
     </head>
     <body>
         <main>
+            <?php 
+                include("funciones/funcionesPHP.php");
+                include("funciones/consultas.php");
+                //se guarda la variable de sesion y se separa, la variable de sesion contiene el usuario y la cedula de relacionada a ese usuario 
+                //separados por coma
+                $sesion = $_SESSION["login"];
+                $sesionSeparado = explode(",", $sesion);
+                //se guarda la cedula 
+                $cedula = $sesionSeparado[1];
+
+                include("funciones/abrir_conexion.php");
+
+                $consutarIntentos = mysqli_query($conexion,consultarIntentos($cedula));
+                $maxIntentos = mysqli_fetch_array($consutarIntentos);
+                $intentos = $maxIntentos['mayor'];
+
+                $puntajeUltimoIntentoTipo1 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 1));
+                $Puntaje1 = mysqli_fetch_array($puntajeUltimoIntentoTipo1);
+                $idResultadoTipo1 = 0;
+                $puntosTipo1 = $Puntaje1['puntaje'];
+                $consultaResultadosPorTipo1 = mysqli_query($conexion,consultaTipoResultado(1));
+                while($resultadosPorTipo1 = mysqli_fetch_array($consultaResultadosPorTipo1)){
+                    if($puntosTipo1 >= $resultadosPorTipo1['puntosMin'] && $puntosTipo1 <= $resultadosPorTipo1['puntosMax']){
+                        $idResultadoTipo1 = $resultadosPorTipo1['id'];
+                    }
+                }
+
+                $puntajeUltimoIntentoTipo2 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 2));
+                $Puntaje2 = mysqli_fetch_array($puntajeUltimoIntentoTipo2);
+                $idResultadoTipo2 = 0;
+                $puntosTipo2 = $Puntaje2['puntaje'];
+                $consultaResultadosPorTipo2 = mysqli_query($conexion,consultaTipoResultado(2));
+                while($resultadosPorTipo2 = mysqli_fetch_array($consultaResultadosPorTipo2)){
+                    if($puntosTipo2 >= $resultadosPorTipo2['puntosMin'] && $puntosTipo2 <= $resultadosPorTipo2['puntosMax']){
+                        $idResultadoTipo2 = $resultadosPorTipo2['id'];
+                    }
+                }
+
+                $puntajeUltimoIntentoTipo3 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 3));
+                $Puntaje3 = mysqli_fetch_array($puntajeUltimoIntentoTipo3);
+                $idResultadoTipo3 = 0;
+                $puntosTipo3 = $Puntaje3['puntaje'];
+                $consultaResultadosPorTipo3 = mysqli_query($conexion,consultaTipoResultado(3));
+                while($resultadosPorTipo3 = mysqli_fetch_array($consultaResultadosPorTipo3)){
+                    if($puntosTipo3 >= $resultadosPorTipo3['puntosMin'] && $puntosTipo3 <= $resultadosPorTipo3['puntosMax']){
+                        $idResultadoTipo3 = $resultadosPorTipo3['id'];
+                    }
+                }
+
+
+                include("funciones/cerrar_conexion.php");
+            ?>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-auto bg-dark sticky-top">
@@ -66,11 +118,61 @@
                                                         <div class="col-lg-6">                                                
                                                             <div class="descripcionPersonal mb-4" style="text-align: justify"></div>
                                                             <div class="librosPersonal mb-2">Libros:
-                                                                <p class="small text-muted px-2 mb-1">Resultados segun tu personalidad</p>
-                                                                <p class="small text-muted px-2 mb-1">Resultados segun tu personalidad</p>
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $librosTipo1 = mysqli_query($conexion,consultaResultadoLibrosPorResultado($idResultadoTipo1));
+                                                                while($resultadoLibrosTipo1 = mysqli_fetch_array($librosTipo1)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoLibrosTipo1['nombre']." - ".$resultadoLibrosTipo1['descripcion']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                                
+                                                                
                                                             </div>
-                                                            <div class="cursosPersonal mb-2">Cursos:</div>
-                                                            <div class="linksPersonal mb-2">Links:</div>
+                                                            <div class="cursosPersonal mb-2">Cursos:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $CursosTipo2 = mysqli_query($conexion,consultaResultadoCursosPorResultado($idResultadoTipo1));
+                                                                while($resultadoCursosTipo2 = mysqli_fetch_array($CursosTipo2)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']." - ".$resultadoCursosTipo2['url']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                            </div>
+                                                            <div class="linksPersonal mb-2">Links:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $LinksTipo3 = mysqli_query($conexion,consultaResultadoLinksPorResultado($idResultadoTipo1));
+                                                                while($resultadoLinksTipo3 = mysqli_fetch_array($LinksTipo3)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoLinksTipo3['nombre']." - ".$resultadoLinksTipo3['descripcion']." - ".$resultadoLinksTipo3['url']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,9 +189,62 @@
 
                                                         <div class="col-lg-6">
                                                             <div class="descripcionTalento mb-4" style="text-align: justify"></div>
-                                                            <div class="librosTalento mb-2">Libros:</div>
-                                                            <div class="cursosTalento mb-2">Cursos:</div>
-                                                            <div class="linksTalento mb-2">Links:</div>                                              
+                                                                                                                            <div class="librosPersonal mb-2">Libros:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $librosTipo2 = mysqli_query($conexion,consultaResultadoLibrosPorResultado($idResultadoTipo2));
+                                                                while($resultadoLibrosTipo2 = mysqli_fetch_array($librosTipo2)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoLibrosTipo2['nombre']." - ".$resultadoLibrosTipo2['descripcion']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="cursosPersonal mb-2">Cursos:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $CursosTipo2 = mysqli_query($conexion,consultaResultadoCursosPorResultado($idResultadoTipo2));
+                                                                while($resultadoCursosTipo2 = mysqli_fetch_array($CursosTipo2)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']." - ".$resultadoCursosTipo2['url']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                            </div>
+                                                            <div class="linksPersonal mb-2">Links:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $LinksTipo3 = mysqli_query($conexion,consultaResultadoLinksPorResultado($idResultadoTipo2));
+                                                                while($resultadoLinksTipo3 = mysqli_fetch_array($LinksTipo3)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoLinksTipo3['nombre']." - ".$resultadoLinksTipo3['descripcion']." - ".$resultadoLinksTipo3['url']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                            </div>                                         
                                                         </div>
                                                     </div>
                                                 </div>
@@ -108,9 +263,62 @@
 
                                                         <div class="col-lg-6">
                                                             <div class="descripcionLaboral mb-4" style="text-align: justify"></div>
-                                                            <div class="librosLaboral mb-2">Libros:</div>
-                                                            <div class="cursosLaboral mb-2">Cursos:</div>
-                                                            <div class="linksLaboral mb-2">Links:</div>                                                
+                                                                                                                            <div class="librosPersonal mb-2">Libros:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $librosTipo3 = mysqli_query($conexion,consultaResultadoLibrosPorResultado($idResultadoTipo3));
+                                                                while($resultadoLibrosTipo3 = mysqli_fetch_array($librosTipo3)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoLibrosTipo3['nombre']." - ".$resultadoLibrosTipo3['descripcion']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="cursosPersonal mb-2">Cursos:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $CursosTipo3 = mysqli_query($conexion,consultaResultadoCursosPorResultado($idResultadoTipo3));
+                                                                while($resultadoCursosTipo3 = mysqli_fetch_array($CursosTipo3)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoCursosTipo3['nombre']." - ".$resultadoCursosTipo3['descripcion']." - ".$resultadoCursosTipo3['url']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                            </div>
+                                                            <div class="linksPersonal mb-2">Links:
+                                                                <?php 
+
+                                                                include("funciones/abrir_conexion.php");
+
+                                                                $LinksTipo3 = mysqli_query($conexion,consultaResultadoLinksPorResultado($idResultadoTipo3));
+                                                                while($resultadoLinksTipo3 = mysqli_fetch_array($LinksTipo3)){
+                                                                   ?>
+                                                                   <p class="small text-muted px-2 mb-1">
+                                                                       <?php echo $resultadoLinksTipo3['nombre']." - ".$resultadoLinksTipo3['descripcion']." - ".$resultadoLinksTipo3['url']; ?>
+                                                                   </p>
+                                                                   <?php 
+                                                                }
+
+                                                                include("funciones/cerrar_conexion.php");
+
+                                                                ?>
+                                                            </div>                                                
                                                         </div>
                                                     </div>
                                                 </div>

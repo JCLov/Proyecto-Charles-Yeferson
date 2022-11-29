@@ -70,6 +70,28 @@
 		return "UPDATE personas_preguntas_respuestas SET terminado = true WHERE cedula_persona = $cedula AND intento = $intentos;";
 	}
 
+	function obtenerPuntajePorTipoPregunta($cedula, $intento, $tipo){
+		return "SELECT sum(pr.puntaje) as puntaje FROM personas_preguntas_respuestas ppr join preguntas_respuestas pr on pr.id = ppr.idPreguntasRespuestas join preguntas pre on pre.id = pr.idPregunta join tipo_preguntas tp on tp.id = pre.idTipoPregunta WHERE ppr.cedula_persona = $cedula AND ppr.intento = $intento AND tp.id = $tipo;";
+	}
 
+	function consultaTipoResultado($tipo){
+		return "SELECT * FROM resultados WHERE idTipoResultado = $tipo;";
+	}
+
+	function consultaResultadoPorId($idResultado){
+		return "SELECT * FROM resultados WHERE id = $idResultado;";
+	}
+
+	function consultaResultadoLibrosPorResultado($idResultado){
+		return "SELECT li.nombre as nombre, li.descripcion as descripcion FROM resultados_libros rl join libros li on li.id = rl.idLibros WHERE rl.idResultados = $idResultado;";
+	}
+
+	function consultaResultadoCursosPorResultado($idResultado){
+		return "SELECT cu.nombre as nombre, cu.descripcion as descripcion, cu.url as url FROM resultados_cursos rc join cursos cu on cu.id = rc.idCursos WHERE rc.idResultados = $idResultado;";
+	}
+
+	function consultaResultadoLinksPorResultado($idResultado){
+		return "SELECT li.nombre as nombre, li.descripcion as descripcion, li.url as url FROM resultados_link rl join links li on li.id = rl.idLinks WHERE rl.idResultados = $idResultado;";
+	}
 
 ?>

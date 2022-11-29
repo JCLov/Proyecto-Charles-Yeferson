@@ -82,9 +82,17 @@ CREATE TABLE personas_preguntas_respuestas (
     idPreguntasRespuestas BIGINT
 );
 
+CREATE TABLE tipo_resultados (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(100),
+);
+
 CREATE TABLE resultados (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    descripcion BIGINT
+    descripcion VARCHAR(100),
+    idTipoResultado BIGINT
+    puntosMax BIGINT,
+    puntosMin BIGINT
 );
 
 CREATE TABLE links (
@@ -109,20 +117,20 @@ CREATE TABLE cursos (
 
 CREATE TABLE resultados_link (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    idResultadosPersonas BIGINT,
-    idLinks BIGINT
+    idLinks BIGINT,
+    idResultados BIGINT
 );
 
 CREATE TABLE resultados_libros (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    idResultadosPersonas BIGINT,
-    idLibros BIGINT
+    idLibros BIGINT,
+    idResultados BIGINT
 );
 
 CREATE TABLE resultados_cursos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    idResultadosPersonas BIGINT,
-    idCursos BIGINT
+    idCursos BIGINT,
+    idResultados BIGINT
 );
 
 
@@ -130,7 +138,9 @@ CREATE TABLE resultados_personas (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     fecha DATE,
     cedula_persona BIGINT,
-    idResultados BIGINT
+    idResultadosLinks BIGINT,
+    idResultadosLibros BIGINT,
+    idResultadosCursos BIGINT
 );
 
 ALTER TABLE usuario ADD CONSTRAINT FK_ROL_USU FOREIGN KEY (idRoles) REFERENCES roles(id);
@@ -152,14 +162,15 @@ ALTER TABLE personas_preguntas_respuestas ADD CONSTRAINT FK_PER_PPR FOREIGN KEY 
 ALTER TABLE personas_preguntas_respuestas ADD CONSTRAINT FK_TIN_PPR FOREIGN KEY (idPreguntasRespuestas) REFERENCES preguntas_respuestas(id);
 
 ALTER TABLE resultados_link ADD CONSTRAINT FK_RES_LIN FOREIGN KEY (idLinks) REFERENCES links(id);
-ALTER TABLE resultados_link ADD CONSTRAINT FK_RPER_LIN FOREIGN KEY (idResultadosPersonas) REFERENCES resultados_personas(id);
+ALTER TABLE resultados_link ADD CONSTRAINT FK_RESU_LIN FOREIGN KEY (idResultados) REFERENCES resultados(id);
 
 ALTER TABLE resultados_libros ADD CONSTRAINT FK_RES_LIB FOREIGN KEY (idLibros) REFERENCES libros(id);
-ALTER TABLE resultados_libros ADD CONSTRAINT FK_RPER_LIB FOREIGN KEY (idResultadosPersonas) REFERENCES resultados_personas(id);
+ALTER TABLE resultados_libros ADD CONSTRAINT FK_RESU_LIB FOREIGN KEY (idResultados) REFERENCES resultados(id);
 
 ALTER TABLE resultados_cursos ADD CONSTRAINT FK_RES_CUR FOREIGN KEY (idCursos) REFERENCES cursos(id);
-ALTER TABLE resultados_cursos ADD CONSTRAINT FK_RPER_CUR FOREIGN KEY (idResultadosPersonas) REFERENCES resultados_personas(id);
-
+ALTER TABLE resultados_cursos ADD CONSTRAINT FK_RESU_CUR FOREIGN KEY (idResultados) REFERENCES resultados(id);
 
 ALTER TABLE resultados_personas ADD CONSTRAINT FK_PER_CPER FOREIGN KEY (cedula_persona) REFERENCES personas(cedula);
-ALTER TABLE resultados_personas ADD CONSTRAINT FK_RES_CPER FOREIGN KEY (idResultados) REFERENCES resultados(id);
+ALTER TABLE resultados_personas ADD CONSTRAINT FK_RESU_CPER FOREIGN KEY (idResultado) REFERENCES resultados(id);
+
+ALTER TABLE resultados ADD CONSTRAINT FK_TRE_RESS FOREIGN KEY (idTipoResultado) REFERENCES tipo_resultados(id);

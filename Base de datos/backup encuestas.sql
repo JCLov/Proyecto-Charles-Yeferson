@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-11-2022 a las 06:45:48
+-- Tiempo de generación: 29-11-2022 a las 10:16:58
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -33,6 +33,18 @@ CREATE TABLE `cursos` (
   `descripcion` varchar(150) DEFAULT NULL,
   `url` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cursos`
+--
+
+INSERT INTO `cursos` (`id`, `nombre`, `descripcion`, `url`) VALUES
+(1, 'curso 1', 'Descripcion curso 1', 'url curso 1'),
+(2, 'curso 2', 'Descripcion curso 2', 'url curso 2'),
+(3, 'curso 3', 'Descripcion curso 3', 'url curso 3'),
+(4, 'curso 4', 'Descripcion curso 4', 'url curso 4'),
+(5, 'curso 5', 'Descripcion curso 5', 'url curso 5'),
+(6, 'curso 6', 'Descripcion curso 6', 'url curso 6');
 
 -- --------------------------------------------------------
 
@@ -92,6 +104,18 @@ CREATE TABLE `libros` (
   `descripcion` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `libros`
+--
+
+INSERT INTO `libros` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'libro 1', 'Descripcion libro 1'),
+(2, 'libro 2', 'Descripcion libro 2'),
+(3, 'libro 3', 'Descripcion libro 3'),
+(4, 'libro 4', 'Descripcion libro 4'),
+(5, 'libro 5', 'Descripcion libro 5'),
+(6, 'libro 6', 'Descripcion libro 6');
+
 -- --------------------------------------------------------
 
 --
@@ -104,6 +128,18 @@ CREATE TABLE `links` (
   `descripcion` varchar(150) DEFAULT NULL,
   `url` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `links`
+--
+
+INSERT INTO `links` (`id`, `nombre`, `descripcion`, `url`) VALUES
+(1, 'Link 1', 'Descripcion link 1', 'url link 1'),
+(2, 'Link 2', 'Descripcion link 2', 'url link 2'),
+(3, 'Link 3', 'Descripcion link 3', 'url link 3'),
+(4, 'Link 4', 'Descripcion link 4', 'url link 4'),
+(5, 'Link 5', 'Descripcion link 5', 'url link 5'),
+(6, 'Link 6', 'Descripcion link 6', 'url link 6');
 
 -- --------------------------------------------------------
 
@@ -193,6 +229,57 @@ CREATE TABLE `personas_preguntas_respuestas` (
   `cedula_persona` bigint(20) DEFAULT NULL,
   `idPreguntasRespuestas` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `personas_preguntas_respuestas`
+--
+
+INSERT INTO `personas_preguntas_respuestas` (`id`, `fecha`, `intento`, `terminado`, `cedula_persona`, `idPreguntasRespuestas`) VALUES
+(1, '2022-11-29', 1, 1, 19925888, 1),
+(2, '2022-11-29', 1, 1, 19925888, 6),
+(3, '2022-11-29', 1, 1, 19925888, 12),
+(4, '2022-11-29', 1, 1, 19925888, 17),
+(5, '2022-11-29', 1, 1, 19925888, 22),
+(6, '2022-11-29', 1, 1, 19925888, 27),
+(7, '2022-11-29', 1, 1, 19925888, 32),
+(8, '2022-11-29', 1, 1, 19925888, 36),
+(9, '2022-11-29', 1, 1, 19925888, 43),
+(10, '2022-11-29', 1, 1, 19925888, 49),
+(11, '2022-11-29', 1, 1, 19925888, 52),
+(12, '2022-11-29', 1, 1, 19925888, 56),
+(13, '2022-11-29', 1, 1, 19925888, 61),
+(14, '2022-11-29', 1, 1, 19925888, 69),
+(15, '2022-11-29', 1, 1, 19925888, 73),
+(16, '2022-11-29', 2, 1, 19925888, 1),
+(17, '2022-11-29', 2, 1, 19925888, 6),
+(18, '2022-11-29', 2, 1, 19925888, 11),
+(19, '2022-11-29', 2, 1, 19925888, 16),
+(20, '2022-11-29', 2, 1, 19925888, 21),
+(21, '2022-11-29', 2, 1, 19925888, 26),
+(22, '2022-11-29', 2, 1, 19925888, 31),
+(23, '2022-11-29', 2, 1, 19925888, 36),
+(24, '2022-11-29', 2, 1, 19925888, 41),
+(25, '2022-11-29', 2, 1, 19925888, 46),
+(26, '2022-11-29', 2, 1, 19925888, 52),
+(27, '2022-11-29', 2, 1, 19925888, 58),
+(28, '2022-11-29', 2, 1, 19925888, 65),
+(29, '2022-11-29', 2, 1, 19925888, 69),
+(30, '2022-11-29', 2, 1, 19925888, 75),
+(31, '2022-11-29', 3, 1, 19925888, 1),
+(32, '2022-11-29', 3, 1, 19925888, 6),
+(33, '2022-11-29', 3, 1, 19925888, 11),
+(34, '2022-11-29', 3, 1, 19925888, 16),
+(35, '2022-11-29', 3, 1, 19925888, 21),
+(36, '2022-11-29', 3, 1, 19925888, 26),
+(37, '2022-11-29', 3, 1, 19925888, 31),
+(38, '2022-11-29', 3, 1, 19925888, 40),
+(39, '2022-11-29', 3, 1, 19925888, 45),
+(40, '2022-11-29', 3, 1, 19925888, 50),
+(41, '2022-11-29', 3, 1, 19925888, 53),
+(42, '2022-11-29', 3, 1, 19925888, 58),
+(43, '2022-11-29', 3, 1, 19925888, 63),
+(44, '2022-11-29', 3, 1, 19925888, 68),
+(45, '2022-11-29', 3, 1, 19925888, 73);
 
 -- --------------------------------------------------------
 
@@ -341,12 +428,12 @@ INSERT INTO `respuestas` (`id`, `descripcion`, `idTipoRespuesta`) VALUES
 (1, 'Respuesta 1 Tipo 1', 1),
 (2, 'Respuesta 2 Tipo 1', 1),
 (3, 'Respuesta 3 Tipo 1', 1),
-(4, 'Respuesta 4 Tipo 1', 1),
-(5, 'Respuesta 5 Tipo 1', 1),
-(6, 'Respuesta 1 Tipo 2', 2),
-(7, 'Respuesta 2 Tipo 2', 2),
-(8, 'Respuesta 3 Tipo 2', 2),
-(9, 'Respuesta 4 Tipo 2', 2),
+(4, 'Respuesta 1 Tipo 2', 1),
+(5, 'Respuesta 2 Tipo 2', 1),
+(6, 'Respuesta 3 Tipo 2', 2),
+(7, 'Respuesta 1 Tipo 3', 2),
+(8, 'Respuesta 2 Tipo 3', 2),
+(9, 'Respuesta 3 Tipo 3', 2),
 (10, 'Respuesta 5 Tipo 2', 2),
 (11, 'Respuesta 1 Tipo 3', 3),
 (12, 'Respuesta 2 Tipo 3', 3),
@@ -362,8 +449,26 @@ INSERT INTO `respuestas` (`id`, `descripcion`, `idTipoRespuesta`) VALUES
 
 CREATE TABLE `resultados` (
   `id` bigint(20) NOT NULL,
-  `descripcion` bigint(20) DEFAULT NULL
+  `descripcion` varchar(200) DEFAULT NULL,
+  `idTipoResultado` bigint(20) NOT NULL,
+  `puntosMax` bigint(11) NOT NULL,
+  `puntosMin` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `resultados`
+--
+
+INSERT INTO `resultados` (`id`, `descripcion`, `idTipoResultado`, `puntosMax`, `puntosMin`) VALUES
+(1, 'Resultado 1 Tipo 1', 1, 90, 0),
+(2, 'Resultado 2 Tipo 1', 1, 170, 91),
+(3, 'Resultado 3 Tipo 1', 1, 299, 171),
+(4, 'Resultado 1 Tipo 2', 2, 90, 0),
+(5, 'Resultado 2 Tipo 2', 2, 170, 91),
+(6, 'Resultado 3 Tipo 2', 2, 299, 171),
+(7, 'Resultado 1 Tipo 3', 3, 90, 0),
+(8, 'Resultado 2 Tipo 3', 3, 170, 91),
+(9, 'Resultado 3 Tipo 3', 3, 299, 171);
 
 -- --------------------------------------------------------
 
@@ -373,9 +478,33 @@ CREATE TABLE `resultados` (
 
 CREATE TABLE `resultados_cursos` (
   `id` bigint(20) NOT NULL,
-  `idResultadosPersonas` bigint(20) DEFAULT NULL,
-  `idCursos` bigint(20) DEFAULT NULL
+  `idCursos` bigint(20) DEFAULT NULL,
+  `idResultados` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `resultados_cursos`
+--
+
+INSERT INTO `resultados_cursos` (`id`, `idCursos`, `idResultados`) VALUES
+(1, 1, 1),
+(2, 3, 1),
+(3, 2, 2),
+(4, 4, 2),
+(5, 5, 3),
+(6, 6, 3),
+(7, 6, 4),
+(8, 4, 4),
+(9, 2, 5),
+(10, 3, 5),
+(11, 1, 6),
+(12, 5, 6),
+(13, 3, 7),
+(14, 4, 7),
+(15, 1, 8),
+(16, 5, 8),
+(17, 6, 9),
+(18, 2, 9);
 
 -- --------------------------------------------------------
 
@@ -385,9 +514,33 @@ CREATE TABLE `resultados_cursos` (
 
 CREATE TABLE `resultados_libros` (
   `id` bigint(20) NOT NULL,
-  `idResultadosPersonas` bigint(20) DEFAULT NULL,
-  `idLibros` bigint(20) DEFAULT NULL
+  `idLibros` bigint(20) DEFAULT NULL,
+  `idResultados` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `resultados_libros`
+--
+
+INSERT INTO `resultados_libros` (`id`, `idLibros`, `idResultados`) VALUES
+(1, 3, 1),
+(2, 4, 1),
+(3, 2, 2),
+(4, 1, 2),
+(5, 6, 3),
+(6, 5, 3),
+(7, 2, 4),
+(8, 6, 4),
+(9, 5, 5),
+(10, 4, 5),
+(11, 1, 6),
+(12, 3, 6),
+(13, 5, 7),
+(14, 3, 7),
+(15, 2, 8),
+(16, 6, 8),
+(17, 4, 9),
+(18, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -397,9 +550,33 @@ CREATE TABLE `resultados_libros` (
 
 CREATE TABLE `resultados_link` (
   `id` bigint(20) NOT NULL,
-  `idResultadosPersonas` bigint(20) DEFAULT NULL,
-  `idLinks` bigint(20) DEFAULT NULL
+  `idLinks` bigint(20) DEFAULT NULL,
+  `idResultados` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `resultados_link`
+--
+
+INSERT INTO `resultados_link` (`id`, `idLinks`, `idResultados`) VALUES
+(1, 6, 1),
+(2, 4, 1),
+(3, 2, 2),
+(4, 3, 2),
+(5, 1, 3),
+(6, 5, 3),
+(7, 3, 4),
+(8, 4, 4),
+(9, 1, 5),
+(10, 5, 5),
+(11, 6, 6),
+(12, 2, 6),
+(13, 1, 7),
+(14, 3, 7),
+(15, 2, 8),
+(16, 4, 8),
+(17, 5, 9),
+(18, 6, 9);
 
 -- --------------------------------------------------------
 
@@ -411,7 +588,7 @@ CREATE TABLE `resultados_personas` (
   `id` bigint(20) NOT NULL,
   `fecha` date DEFAULT NULL,
   `cedula_persona` bigint(20) DEFAULT NULL,
-  `idResultados` bigint(20) DEFAULT NULL
+  `idResultado` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -494,6 +671,28 @@ INSERT INTO `tipo_respuestas` (`id`, `descripcion`) VALUES
 (2, 'Tipo Respuesta 2'),
 (3, 'Tipo Respuesta 3'),
 (4, 'Tipo Respuesta 4');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_resultados`
+--
+
+CREATE TABLE `tipo_resultados` (
+  `id` bigint(20) NOT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `puntosMax` bigint(20) NOT NULL,
+  `puntosMin` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_resultados`
+--
+
+INSERT INTO `tipo_resultados` (`id`, `descripcion`, `puntosMax`, `puntosMin`) VALUES
+(1, 'RESPUESTAS PERSONALES', 500, 200),
+(2, 'RESPUESTAS TALENTOS', 199, 100),
+(3, 'RESPUESTAS LABORALES', 99, 0);
 
 -- --------------------------------------------------------
 
@@ -607,7 +806,8 @@ ALTER TABLE `respuestas`
 -- Indices de la tabla `resultados`
 --
 ALTER TABLE `resultados`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_TRE_RESS` (`idTipoResultado`);
 
 --
 -- Indices de la tabla `resultados_cursos`
@@ -615,7 +815,7 @@ ALTER TABLE `resultados`
 ALTER TABLE `resultados_cursos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_RES_CUR` (`idCursos`),
-  ADD KEY `FK_RPER_CUR` (`idResultadosPersonas`);
+  ADD KEY `FK_RESU_CUR` (`idResultados`);
 
 --
 -- Indices de la tabla `resultados_libros`
@@ -623,7 +823,7 @@ ALTER TABLE `resultados_cursos`
 ALTER TABLE `resultados_libros`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_RES_LIB` (`idLibros`),
-  ADD KEY `FK_RPER_LIB` (`idResultadosPersonas`);
+  ADD KEY `FK_RESU_LIB` (`idResultados`);
 
 --
 -- Indices de la tabla `resultados_link`
@@ -631,7 +831,7 @@ ALTER TABLE `resultados_libros`
 ALTER TABLE `resultados_link`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_RES_LIN` (`idLinks`),
-  ADD KEY `FK_RPER_LIN` (`idResultadosPersonas`);
+  ADD KEY `FK_RESU_LIN` (`idResultados`);
 
 --
 -- Indices de la tabla `resultados_personas`
@@ -639,7 +839,7 @@ ALTER TABLE `resultados_link`
 ALTER TABLE `resultados_personas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_PER_CPER` (`cedula_persona`),
-  ADD KEY `FK_RES_CPER` (`idResultados`);
+  ADD KEY `FK_RESU_CPER` (`idResultado`);
 
 --
 -- Indices de la tabla `roles`
@@ -666,6 +866,12 @@ ALTER TABLE `tipo_respuestas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `tipo_resultados`
+--
+ALTER TABLE `tipo_resultados`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -680,7 +886,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -698,13 +904,13 @@ ALTER TABLE `institucion`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `municipio`
@@ -722,7 +928,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `personas_preguntas_respuestas`
 --
 ALTER TABLE `personas_preguntas_respuestas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntas`
@@ -740,31 +946,31 @@ ALTER TABLE `preguntas_respuestas`
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `resultados`
 --
 ALTER TABLE `resultados`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `resultados_cursos`
 --
 ALTER TABLE `resultados_cursos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `resultados_libros`
 --
 ALTER TABLE `resultados_libros`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `resultados_link`
 --
 ALTER TABLE `resultados_link`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `resultados_personas`
@@ -795,6 +1001,12 @@ ALTER TABLE `tipo_preguntas`
 --
 ALTER TABLE `tipo_respuestas`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_resultados`
+--
+ALTER TABLE `tipo_resultados`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -853,32 +1065,38 @@ ALTER TABLE `respuestas`
   ADD CONSTRAINT `FK_TRE_RES` FOREIGN KEY (`idTipoRespuesta`) REFERENCES `tipo_respuestas` (`id`);
 
 --
+-- Filtros para la tabla `resultados`
+--
+ALTER TABLE `resultados`
+  ADD CONSTRAINT `FK_TRE_RESS` FOREIGN KEY (`idTipoResultado`) REFERENCES `tipo_resultados` (`id`);
+
+--
 -- Filtros para la tabla `resultados_cursos`
 --
 ALTER TABLE `resultados_cursos`
-  ADD CONSTRAINT `FK_RES_CUR` FOREIGN KEY (`idCursos`) REFERENCES `cursos` (`id`),
-  ADD CONSTRAINT `FK_RPER_CUR` FOREIGN KEY (`idResultadosPersonas`) REFERENCES `resultados_personas` (`id`);
+  ADD CONSTRAINT `FK_RESU_CUR` FOREIGN KEY (`idResultados`) REFERENCES `resultados` (`id`),
+  ADD CONSTRAINT `FK_RES_CUR` FOREIGN KEY (`idCursos`) REFERENCES `cursos` (`id`);
 
 --
 -- Filtros para la tabla `resultados_libros`
 --
 ALTER TABLE `resultados_libros`
-  ADD CONSTRAINT `FK_RES_LIB` FOREIGN KEY (`idLibros`) REFERENCES `libros` (`id`),
-  ADD CONSTRAINT `FK_RPER_LIB` FOREIGN KEY (`idResultadosPersonas`) REFERENCES `resultados_personas` (`id`);
+  ADD CONSTRAINT `FK_RESU_LIB` FOREIGN KEY (`idResultados`) REFERENCES `resultados` (`id`),
+  ADD CONSTRAINT `FK_RES_LIB` FOREIGN KEY (`idLibros`) REFERENCES `libros` (`id`);
 
 --
 -- Filtros para la tabla `resultados_link`
 --
 ALTER TABLE `resultados_link`
-  ADD CONSTRAINT `FK_RES_LIN` FOREIGN KEY (`idLinks`) REFERENCES `links` (`id`),
-  ADD CONSTRAINT `FK_RPER_LIN` FOREIGN KEY (`idResultadosPersonas`) REFERENCES `resultados_personas` (`id`);
+  ADD CONSTRAINT `FK_RESU_LIN` FOREIGN KEY (`idResultados`) REFERENCES `resultados` (`id`),
+  ADD CONSTRAINT `FK_RES_LIN` FOREIGN KEY (`idLinks`) REFERENCES `links` (`id`);
 
 --
 -- Filtros para la tabla `resultados_personas`
 --
 ALTER TABLE `resultados_personas`
   ADD CONSTRAINT `FK_PER_CPER` FOREIGN KEY (`cedula_persona`) REFERENCES `personas` (`cedula`),
-  ADD CONSTRAINT `FK_RES_CPER` FOREIGN KEY (`idResultados`) REFERENCES `resultados` (`id`);
+  ADD CONSTRAINT `FK_RESU_CPER` FOREIGN KEY (`idResultado`) REFERENCES `resultados` (`id`);
 
 --
 -- Filtros para la tabla `usuario`
