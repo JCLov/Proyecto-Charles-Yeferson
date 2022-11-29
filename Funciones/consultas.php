@@ -55,5 +55,21 @@
 		return "SELECT * FROM respuestas WHERE idTipoRespuesta = '$tipo_respuesta';";
 	}	
 
+	//consultar intentos
+	function consultarIntentos($cedula){
+		return "SELECT MAX(intento) as mayor FROM personas_preguntas_respuestas WHERE cedula_persona = '$cedula' AND terminado = true;";
+	}
+
+	//inserta respuestas de la persona
+	function insertaRespuestasPersona($intento, $terminado, $cedula, $respuesta){
+		return "INSERT INTO personas_preguntas_respuestas(fecha, intento, terminado, cedula_persona, idPreguntasRespuestas) VALUES (now(),'$intento','$terminado','$cedula','$respuesta');";
+	}
+
+	//update terminado true
+	function updateTerminado($cedula, $intentos){
+		return "UPDATE personas_preguntas_respuestas SET terminado = true WHERE cedula_persona = $cedula AND intento = $intentos;";
+	}
+
+
 
 ?>

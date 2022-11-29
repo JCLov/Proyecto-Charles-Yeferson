@@ -24,16 +24,13 @@
         <main>
             <div class="container">
                 <?php 
-                    if(isset($_GET['tipo'])){
-                        $tipo = $_GET['tipo'];
-                        if($tipo < 3){
-                            $direccion = "preguntasFormulario.php?tipo=".($tipo+1);
-                        }else{
-                            $direccion = "respuestas.php";
-                        }
-                    }else{
+                    //se pregunta si se esta mandando por el metodo get una variable llamda tipo
+                    if(!isset($_GET['tipo'])){
                         header('location:preguntasFormulario.php?tipo=1');
-                    } 
+                    }else{
+                        $tipo = $_GET['tipo'];
+                        $direccion = "consultasPHP.php?tipo=".$tipo;
+                    }
                 ?>
                 <form action="<?php echo $direccion; ?>" method="post" name="formularioPreguntas">
                     <div class="row">
@@ -65,7 +62,7 @@
                                                         ?>
                                                             <li class="list-group-item rounded-0 d-flex align-items-center justify-content-between bg-body text-white" style="border: 1px solid white">
                                                                 <div class="custom-control custom-radio">
-                                                                <input class="custom-control-input" id="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>" type="radio" name="radiobutton<?php echo $contPreguntas; ?>" value="<?php echo $resultadoRespuestas['idpr']; ?>">
+                                                                <input class="custom-control-input" id="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>" type="radio" name="respuesta<?php echo $contPreguntas; ?>" value="<?php echo $resultadoRespuestas['idpr']; ?>">
                                                                 <label class="custom-control-label" for="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>">
                                                                     <p class="mb-0"><?php echo $resultadoRespuestas['respuestadescripcion'] ?></p><span class="small font-italic text-muted">Descripcion Respuesta</span>
                                                                 </label>
@@ -91,6 +88,7 @@
                         ?>   
                     </div>
                     <div class="row pt-4">
+                        <input type="hidden" name="cantidadPreguntas" value="<?php echo $contPreguntas; ?>">
                         <div class="col-lg-auto col-md-auto col-sm-auto mb-4 mx-auto">
                             <div class="card border-0 shadow-5-strong bg-dark text-white" style="border-radius: 1rem;">
                                 <div class="card-body p-2">

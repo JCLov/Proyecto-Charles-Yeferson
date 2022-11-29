@@ -1,10 +1,11 @@
 <?php
     include("funciones/funcionesPHP.php");
     include("funciones/consultas.php");
+    session_start();
 
     if(isset($_GET['sesion'])){
         session_destroy();
-        //header('location:login.php');
+        header('location:login.php');
     }
 
     if(isset($_POST['registrar'])){
@@ -64,12 +65,15 @@
             include("funciones/cerrar_conexion.php");
             header('location:login.php?registro=2');
         }
-    }else if(isset($_POST['ingresar'])){
+    }
+
+    if(isset($_POST['ingresar'])){
 
         if(isset($_POST['usuario']) && isset($_POST['clave'])){
 
             include("funciones/abrir_conexion.php");
-            $usuario = $_POST['usuario'];
+            $variable = "usuario";
+            $usuario = $_POST[$variable];
             $clave = $_POST['clave'];
             $consultarExisteUsuario = mysqli_query($conexion,consultaUsuario($usuario,$clave));
             $existeUsuario = mysqli_num_rows($consultarExisteUsuario);
@@ -92,5 +96,71 @@
 
         }        
     }
+
+    if(isset($_GET['tipo'])){
+
+
+        $tipo = $_GET['tipo'];
+
+        if($tipo > 0 && $tipo < 4 && isset($_POST['cantidadPreguntas'])){
+            $cantidadPreguntas = $_POST['cantidadPreguntas'];
+            if($cantidadPreguntas > 0 ){
+
+                //se guarda la variable de sesion y se separa, la variable de sesion contiene el usuario y la cedula de relacionada a ese usuario 
+                //separados por coma
+                $sesion = $_SESSION["login"];
+                $sesionSeparado = explode(",", $sesion);
+                //se guarda la cedula 
+                $cedula = $sesionSeparado[1];
+
+                include("funciones/abrir_conexion.php");
+
+                $consutarIntentos = mysqli_query($conexion,consultarIntentos($cedula));
+                $existeIntentos = mysqli_num_rows($consutarIntentos);
+
+                $intentos = 1;
+                $terminado = false;
+
+                if($existeIntentos > 0){
+                    $maxIntentos = mysqli_fetch_array($consutarIntentos);
+                    $intentos = $maxIntentos['mayor'];
+                    if($intentos != 0){
+                        $intentos = $intentos+1;
+                    }else{
+                        $intentos = 1;
+                    }
+                }
+
+                if($tipo == 3){
+                    $terminado = true;
+                    $modificarTerminado = mysqli_query($conexion,updateTerminado($cedula, $intentos));      
+                }
+
+                for ($i=0; $i < $cantidadPreguntas; $i++) { 
+
+                    $nombreVariable = "respuesta".($i+1);
+                    $respuesta = $_POST[$nombreVariable];
+
+                    $insertarRespuestas = mysqli_query($conexion,insertaRespuestasPersona($intentos, $terminado, $cedula, $respuesta));
+                }                
+
+                include("funciones/cerrar_conexion.php");
+
+            }
+
+        }
+
+        if($tipo < 3){
+            $direccion = "location:preguntasFormulario.php?tipo=".($tipo+1);
+             header($direccion);
+        }else{
+            //si es 3 el tipo se envia a respuestas.php
+            header('location:respuestas.php');
+        }
+    }
+
+
+
+
 
 ?>
