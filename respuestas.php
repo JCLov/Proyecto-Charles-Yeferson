@@ -80,7 +80,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="index.php" class="nav-link py-3 px-0" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                    <a href="dashboard.php" class="nav-link py-3 px-0" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                         <i><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 256V160H224v96H64zm0 64H224v96H64V320zm224 96V320H448v96H288zM448 256H288V160H448v96zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg></i>
                                     </a>
                                 </li>
@@ -104,17 +104,17 @@
                         <div class="container">
                             <section class="py-3">
                                 <div class="container py-5">
-                                <div class="row">
-                                        <div class="col-lg-6 mb-4">
+                                    <div class="row">
+                                        <div class="col-lg-12 mb-4">
                                             <div class="card border-0 shadow-5-strong bg-dark text-white" style="border-radius: 1rem;">
                                                 <div class="card-body p-4">
                                                     <div class="row align-items-center">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <h3 class="fw-bold">Resultados Personales</h3>
                                                             <p class="small text-muted mb-0">Resultados segun tu personalidad</p>
                                                         </div>
 
-                                                        <div class="col-lg-6">                                                
+                                                        <div class="col-lg-8">                                                
                                                             <div class="descripcionPersonal mb-4" style="text-align: justify"></div>
                                                             <div class="librosPersonal mb-2">Libros:
                                                                 <?php 
@@ -177,16 +177,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 mb-4">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 mb-4">
                                             <div class="card border-0 shadow-5-strong bg-dark text-white" style="border-radius: 1rem;">
                                                 <div class="card-body p-4">
                                                     <div class="row align-items-center">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <h3 class="fw-bold">Talentos</h3>
                                                             <p class="small text-muted mb-0">Recomendaciones según tus talentos</p>
                                                         </div>
 
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-8">
                                                             <div class="descripcionTalento mb-4" style="text-align: justify"></div>
                                                                                                                             <div class="librosPersonal mb-2">Libros:
                                                                 <?php 
@@ -251,16 +253,16 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-6 mb-4">
+                                        <div class="col-lg-12 mb-4">
                                             <div class="card border-0 shadow-5-strong bg-dark text-white" style="border-radius: 1rem;">
                                                 <div class="card-body p-4">
                                                     <div class="row align-items-center">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-4">
                                                             <h3 class="fw-bold">Ámbito Laboral</h3>
                                                             <p class="small text-muted mb-0">Sugerencias para el campo laboral</p>
                                                         </div>
 
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-8">
                                                             <div class="descripcionLaboral mb-4" style="text-align: justify"></div>
                                                                                                                             <div class="librosPersonal mb-2">Libros:
                                                                 <?php 
@@ -323,24 +325,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 mb-4">
-                                            <div class="card border-0 shadow-5-strong bg-dark text-white" style="border-radius: 1rem;">
-                                                <div class="card-body p-4">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-lg-6">
-                                                            <h3 class="fw-bold">Resultados estadísticos</h3>
-                                                            <p class="small text-muted mb-0">Puntaje del formulario según tus respuestas</p>
-                                                        </div>
-
-                                                        <div class="col-lg-6">
-
-                                                            <canvas id="pieChart3"></canvas>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </section>
@@ -351,5 +335,3 @@
         </main>
     </body>
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script src="js/resultados.js"></script>
