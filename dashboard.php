@@ -34,38 +34,25 @@
                 $maxIntentos = mysqli_fetch_array($consutarIntentos);
                 $intentos = $maxIntentos['mayor'];
 
-                $puntajeUltimoIntentoTipo1 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 1));
-                $Puntaje1 = mysqli_fetch_array($puntajeUltimoIntentoTipo1);
-                $idResultadoTipo1 = 0;
-                $puntosTipo1 = $Puntaje1['puntaje'];
-                $consultaResultadosPorTipo1 = mysqli_query($conexion,consultaTipoResultado(1));
-                while($resultadosPorTipo1 = mysqli_fetch_array($consultaResultadosPorTipo1)){
-                    if($puntosTipo1 >= $resultadosPorTipo1['puntosMin'] && $puntosTipo1 <= $resultadosPorTipo1['puntosMax']){
-                        $idResultadoTipo1 = $resultadosPorTipo1['id'];
-                    }
-                }
+                $consultaPersona = mysqli_query($conexion,consultarPersonas($cedula));
+                $persona = mysqli_fetch_array($consultaPersona);
 
-                $puntajeUltimoIntentoTipo2 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 2));
-                $Puntaje2 = mysqli_fetch_array($puntajeUltimoIntentoTipo2);
-                $idResultadoTipo2 = 0;
-                $puntosTipo2 = $Puntaje2['puntaje'];
-                $consultaResultadosPorTipo2 = mysqli_query($conexion,consultaTipoResultado(2));
-                while($resultadosPorTipo2 = mysqli_fetch_array($consultaResultadosPorTipo2)){
-                    if($puntosTipo2 >= $resultadosPorTipo2['puntosMin'] && $puntosTipo2 <= $resultadosPorTipo2['puntosMax']){
-                        $idResultadoTipo2 = $resultadosPorTipo2['id'];
-                    }
-                }
+                $consultaMunicipio = mysqli_query($conexion,consultarMunicipio($persona['idMunicipio']));
+                $municipios = mysqli_fetch_array($consultaMunicipio);
 
-                $puntajeUltimoIntentoTipo3 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 3));
-                $Puntaje3 = mysqli_fetch_array($puntajeUltimoIntentoTipo3);
-                $idResultadoTipo3 = 0;
-                $puntosTipo3 = $Puntaje3['puntaje'];
-                $consultaResultadosPorTipo3 = mysqli_query($conexion,consultaTipoResultado(3));
-                while($resultadosPorTipo3 = mysqli_fetch_array($consultaResultadosPorTipo3)){
-                    if($puntosTipo3 >= $resultadosPorTipo3['puntosMin'] && $puntosTipo3 <= $resultadosPorTipo3['puntosMax']){
-                        $idResultadoTipo3 = $resultadosPorTipo3['id'];
-                    }
-                }
+                $consultaEstado = mysqli_query($conexion,consultarEstado($municipios['idEstado']));
+                $estados = mysqli_fetch_array($consultaEstado);
+
+                $consultaInstitucion = mysqli_query($conexion,consultarInstitucion($persona['idInstitucion']));
+                $instituciones = mysqli_fetch_array($consultaInstitucion);
+
+                $nombres = $persona['nombre'];
+                $apellidos = $persona['apellido'];
+                $direccion = $persona['direccion'];
+                $fechaNacimiento = $persona['fecha_nacimiento'];
+                $municipio = $municipios['nombre'];
+                $estado = $estados['nombre'];
+                $institucion = $instituciones['nombre'];
 
                 include("funciones/cerrar_conexion.php");
             ?>

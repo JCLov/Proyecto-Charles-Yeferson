@@ -98,7 +98,20 @@
 		return "INSERT INTO resultados_personas(fecha, cedula_persona, idResultado) VALUES (now(),'$cedula','$idResultado');";
 	}
 
+	function consultarPersonas($cedula){
+		return "SELECT * FROM personas WHERE cedula = $cedula;";
+	}
 
-	
+	function consultarMunicipio($id){
+		return "SELECT * FROM municipio WHERE id = $id;";
+	}
+
+	function consultarEstado($id){
+		return "SELECT * FROM estado WHERE id = $id;";
+	}
+
+	function consultarInstitucion($id){
+		return "SELECT * FROM institucion WHERE id = $id;";
+	}
 
 ?>

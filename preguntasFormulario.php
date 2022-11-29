@@ -61,8 +61,8 @@
                                                             $contRespuestas++;
                                                         ?>
                                                             <li class="list-group-item rounded-0 d-flex align-items-center justify-content-between bg-body text-white" style="border: 1px solid white">
-                                                                <div class="custom-control custom-radio">
-                                                                <input class="custom-control-input" id="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>" type="radio" name="respuesta<?php echo $contPreguntas; ?>" value="<?php echo $resultadoRespuestas['idpr']; ?>">
+                                                                <div class="custom-control custom-radio" required>
+                                                                <input class="custom-control-input" id="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>" type="radio" name="respuesta<?php echo $contPreguntas; ?>" value="<?php echo $resultadoRespuestas['idpr']; ?>" <?php echo $contRespuestas==1 ? 'checked' : '' ?>>
                                                                 <label class="custom-control-label" for="radiobutton<?php echo $resultadoRespuestas['idpr']; ?>">
                                                                     <p class="mb-0"><?php echo $resultadoRespuestas['respuestadescripcion'] ?></p><span class="small font-italic text-muted">Descripcion Respuesta</span>
                                                                 </label>
