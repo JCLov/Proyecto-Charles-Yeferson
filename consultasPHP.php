@@ -155,6 +155,58 @@
              header($direccion);
         }else{
             //si es 3 el tipo se envia a respuestas.php
+
+            //se guarda la variable de sesion y se separa, la variable de sesion contiene el usuario y la cedula de relacionada a ese usuario 
+            //separados por coma
+            $sesion = $_SESSION["login"];
+            $sesionSeparado = explode(",", $sesion);
+            //se guarda la cedula 
+            $cedula = $sesionSeparado[1];
+
+            include("funciones/abrir_conexion.php");
+
+            $consutarIntentos = mysqli_query($conexion,consultarIntentos($cedula));
+            $maxIntentos = mysqli_fetch_array($consutarIntentos);
+            $intentos = $maxIntentos['mayor'];
+
+            $puntajeUltimoIntentoTipo1 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 1));
+            $Puntaje1 = mysqli_fetch_array($puntajeUltimoIntentoTipo1);
+            $idResultadoTipo1 = 0;
+            $puntosTipo1 = $Puntaje1['puntaje'];
+            $consultaResultadosPorTipo1 = mysqli_query($conexion,consultaTipoResultado(1));
+            while($resultadosPorTipo1 = mysqli_fetch_array($consultaResultadosPorTipo1)){
+                if($puntosTipo1 >= $resultadosPorTipo1['puntosMin'] && $puntosTipo1 <= $resultadosPorTipo1['puntosMax']){
+                    $idResultadoTipo1 = $resultadosPorTipo1['id'];
+                }
+            }
+            $insertarTipo1 = mysqli_query($conexion,insertarResultadoPersonas($cedula, $idResultadoTipo1));
+
+            $puntajeUltimoIntentoTipo2 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 2));
+            $Puntaje2 = mysqli_fetch_array($puntajeUltimoIntentoTipo2);
+            $idResultadoTipo2 = 0;
+            $puntosTipo2 = $Puntaje2['puntaje'];
+            $consultaResultadosPorTipo2 = mysqli_query($conexion,consultaTipoResultado(2));
+            while($resultadosPorTipo2 = mysqli_fetch_array($consultaResultadosPorTipo2)){
+                if($puntosTipo2 >= $resultadosPorTipo2['puntosMin'] && $puntosTipo2 <= $resultadosPorTipo2['puntosMax']){
+                    $idResultadoTipo2 = $resultadosPorTipo2['id'];
+                }
+            }
+            $insertarTipo2 = mysqli_query($conexion,insertarResultadoPersonas($cedula, $idResultadoTipo2));
+
+            $puntajeUltimoIntentoTipo3 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 3));
+            $Puntaje3 = mysqli_fetch_array($puntajeUltimoIntentoTipo3);
+            $idResultadoTipo3 = 0;
+            $puntosTipo3 = $Puntaje3['puntaje'];
+            $consultaResultadosPorTipo3 = mysqli_query($conexion,consultaTipoResultado(3));
+            while($resultadosPorTipo3 = mysqli_fetch_array($consultaResultadosPorTipo3)){
+                if($puntosTipo3 >= $resultadosPorTipo3['puntosMin'] && $puntosTipo3 <= $resultadosPorTipo3['puntosMax']){
+                    $idResultadoTipo3 = $resultadosPorTipo3['id'];
+                }
+            }
+            $insertarTipo3 = mysqli_query($conexion,insertarResultadoPersonas($cedula, $idResultadoTipo3));
+
+            include("funciones/cerrar_conexion.php");
+
             header('location:respuestas.php');
         }
     }

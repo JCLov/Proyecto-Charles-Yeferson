@@ -94,4 +94,11 @@
 		return "SELECT li.nombre as nombre, li.descripcion as descripcion, li.url as url FROM resultados_link rl join links li on li.id = rl.idLinks WHERE rl.idResultados = $idResultado;";
 	}
 
+	function insertarResultadoPersonas($cedula, $idResultado){
+		return "INSERT INTO resultados_personas(fecha, cedula_persona, idResultado) VALUES (now(),'$cedula','$idResultado');";
+	}
+
+
+	
+
 ?>

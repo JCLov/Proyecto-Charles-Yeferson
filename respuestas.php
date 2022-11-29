@@ -67,7 +67,6 @@
                     }
                 }
 
-
                 include("funciones/cerrar_conexion.php");
             ?>
             <div class="container-fluid">
