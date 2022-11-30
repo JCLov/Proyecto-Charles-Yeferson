@@ -62,8 +62,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm p-3 min-vh-100">
-                        <div class="container">
+                    <div class="col-sm min-vh-100">
+                        <div class="container py-2">
+                            <div class="jumbotron bg-dark bg-opacity-50 text-white">
+                                <div class="container py-5 text-center">
+                                    <div class="row">
+                                        <div class="col-lg-12 mb-5">
+                                            <h1 class="display-3 font-weight-bold mb-5">Bienvenido</h1>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h5 class="display-6 font-weight-bold mb-5">Visita nuestra comunidad</h5>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h5 class="display-6 font-weight-bold mb-5">Realiza nuestro test</h5>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <img src="img/comunidad.jpg" class="w-75">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <img src="img/encuestas.jpg" class="w-75">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

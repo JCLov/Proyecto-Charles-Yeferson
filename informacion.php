@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="col-sm p-5 pt-5 mt-5 min-vh-100">
-                        <div class="jumbotron bg-cover text-white">
+                        <div class="bg-cover text-white">
                             <div class="container py-5 text-center">
                                 <div class="row">
                                     <div class="col-lg-6 mb-5">

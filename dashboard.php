@@ -91,6 +91,32 @@
                         <div class="container">
                             <section class="py-3">
                                 <div class="container py-5">
+                                <div class="row">
+                                        <div class="col-lg-12 mb-4">
+                                            <div class="card border-0 shadow-5-strong bg-dark text-white px-2" style="border-radius: 1rem;">
+                                                <div class="card-body p-4">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-lg-5">
+                                                            <h2 class="fw-bold px-5 mx-1">Datos Personales</h3>
+                                                        </div>
+
+                                                        <div class="col-lg-7">                                                
+                                                            <?php 
+                                                                include("funciones/abrir_conexion.php");
+                                                                    ?>
+                                                                    <h4 class="nombres px-5 mb-3"><?php echo  $nombres; ?> <?php echo $apellidos; ?></h4>
+                                                                    <h5 class="fecha px-5 mb-3"><?php echo $fechaNacimiento; ?></h5>
+                                                                    <h4 class="direccion px-5 mb-3"><?php echo  $municipio; ?>, <?php echo $estado; ?></h4>  
+                                                                    <h4 class="institucion px-5 mb-3"><?php echo  $institucion; ?></h4>
+                                                                    <?php 
+                                                                include("funciones/cerrar_conexion.php");
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-lg-6 mb-4">
                                             <div class="card border-0 shadow-5-strong bg-dark text-white" style="border-radius: 1rem;">
@@ -136,7 +162,7 @@
                                     </div>
                                     <div class="row pt-4">
                                         <div class="col-lg-auto col-md-auto col-sm-auto mb-4 mx-auto">
-                                            <div class="card border-0 shadow-5-strong bg-dark text-white" style="border-radius: 1rem;">
+                                            <div class="card border-0 shadow-5-strong bg-dark text-white px-2" style="border-radius: 1rem;">
                                                 <div class="card-body p-2">
                                                     <div class="row align-items-center">
                                                         <div class="col-auto">
@@ -148,6 +174,19 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-auto col-md-auto col-sm-auto mb-4 mx-auto">
+                                            <div class="card border-0 shadow-5-strong bg-dark text-white px-2" style="border-radius: 1rem;">
+                                                <div class="card-body p-2">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                        <a href="preguntasFormulario.php">
+                                                            <button class="btn btn-outline-light btn-lg" type="submit" name="ultimosResultados">Realizar otro intento</button>
+                                                        </a> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>    
                                     </div>
                                 </div>
                             </section>

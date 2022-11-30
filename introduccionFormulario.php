@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap-5/css/bootstrap.min.css">
         <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="css/style_login.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <main>
@@ -64,6 +65,7 @@
                     </div>
                     <div class="col-sm p-3 min-vh-100">
                         <div class="container">
+
                         </div>
                     </div>
                 </div>

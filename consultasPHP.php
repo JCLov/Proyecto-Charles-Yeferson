@@ -91,7 +91,7 @@
                 session_start();
                 $_SESSION['login'] = $nombreUsuario.",".$cedula;
                 include("funciones/cerrar_conexion.php");
-                header('location:preguntasFormulario.php?tipo=1');
+                header('location:index.php');
             }
 
         }        
