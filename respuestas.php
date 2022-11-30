@@ -37,33 +37,39 @@
                 $puntajeUltimoIntentoTipo1 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 1));
                 $Puntaje1 = mysqli_fetch_array($puntajeUltimoIntentoTipo1);
                 $idResultadoTipo1 = 0;
+                $DescripcionResultadoTipo1 = "";
                 $puntosTipo1 = $Puntaje1['puntaje'];
                 $consultaResultadosPorTipo1 = mysqli_query($conexion,consultaTipoResultado(1));
                 while($resultadosPorTipo1 = mysqli_fetch_array($consultaResultadosPorTipo1)){
                     if($puntosTipo1 >= $resultadosPorTipo1['puntosMin'] && $puntosTipo1 <= $resultadosPorTipo1['puntosMax']){
                         $idResultadoTipo1 = $resultadosPorTipo1['id'];
+                        $DescripcionResultadoTipo1 = $resultadosPorTipo1['descripcion'];
                     }
                 }
 
                 $puntajeUltimoIntentoTipo2 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 2));
                 $Puntaje2 = mysqli_fetch_array($puntajeUltimoIntentoTipo2);
                 $idResultadoTipo2 = 0;
+                $DescripcionResultadoTipo2 = "";
                 $puntosTipo2 = $Puntaje2['puntaje'];
                 $consultaResultadosPorTipo2 = mysqli_query($conexion,consultaTipoResultado(2));
                 while($resultadosPorTipo2 = mysqli_fetch_array($consultaResultadosPorTipo2)){
                     if($puntosTipo2 >= $resultadosPorTipo2['puntosMin'] && $puntosTipo2 <= $resultadosPorTipo2['puntosMax']){
                         $idResultadoTipo2 = $resultadosPorTipo2['id'];
+                        $DescripcionResultadoTipo2 = $resultadosPorTipo2['descripcion'];
                     }
                 }
 
                 $puntajeUltimoIntentoTipo3 = mysqli_query($conexion,obtenerPuntajePorTipoPregunta($cedula, $intentos, 3));
                 $Puntaje3 = mysqli_fetch_array($puntajeUltimoIntentoTipo3);
                 $idResultadoTipo3 = 0;
+                $DescripcionResultadoTipo3 = "";
                 $puntosTipo3 = $Puntaje3['puntaje'];
                 $consultaResultadosPorTipo3 = mysqli_query($conexion,consultaTipoResultado(3));
                 while($resultadosPorTipo3 = mysqli_fetch_array($consultaResultadosPorTipo3)){
                     if($puntosTipo3 >= $resultadosPorTipo3['puntosMin'] && $puntosTipo3 <= $resultadosPorTipo3['puntosMax']){
                         $idResultadoTipo3 = $resultadosPorTipo3['id'];
+                        $DescripcionResultadoTipo3 = $resultadosPorTipo3['descripcion'];
                     }
                 }
 
@@ -114,7 +120,9 @@
                                                             <p class="small text-muted mb-0">Resultados segun tu personalidad</p>
                                                         </div>
 
-                                                        <div class="col-lg-8">                                                
+                                                        <div class="col-lg-8">     
+                                                            <div class="librosPersonal mb-2"> <?php echo $DescripcionResultadoTipo1; ?> </div>   
+                                                                                              
                                                             <div class="descripcionPersonal mb-4" style="text-align: justify"></div>
                                                             <div class="librosPersonal mb-2">Libros:
                                                                 <?php 
@@ -125,7 +133,7 @@
                                                                 while($resultadoLibrosTipo1 = mysqli_fetch_array($librosTipo1)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoLibrosTipo1['nombre']." - ".$resultadoLibrosTipo1['descripcion']; ?>
+                                                                       <a href="<?php echo $resultadoLibrosTipo1['descripcion']; ?>"><?php echo $resultadoLibrosTipo1['nombre']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -145,7 +153,7 @@
                                                                 while($resultadoCursosTipo2 = mysqli_fetch_array($CursosTipo2)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']." - ".$resultadoCursosTipo2['url']; ?>
+                                                                       <a href="<?php echo $resultadoCursosTipo2['url']; ?>"><?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -154,7 +162,7 @@
 
                                                                 ?>
                                                             </div>
-                                                            <div class="linksPersonal mb-2">Links:
+                                                            <div class="linksPersonal mb-2">Frases:
                                                                 <?php 
 
                                                                 include("funciones/abrir_conexion.php");
@@ -163,7 +171,7 @@
                                                                 while($resultadoLinksTipo3 = mysqli_fetch_array($LinksTipo3)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoLinksTipo3['nombre']." - ".$resultadoLinksTipo3['descripcion']." - ".$resultadoLinksTipo3['url']; ?>
+                                                                       <?php echo $resultadoLinksTipo3['descripcion']; ?>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -189,8 +197,9 @@
                                                         </div>
 
                                                         <div class="col-lg-8">
-                                                            <div class="descripcionTalento mb-4" style="text-align: justify"></div>
-                                                                                                                            <div class="librosPersonal mb-2">Libros:
+                                                            <div class="descripcionTalento mb-2" style="text-align: justify"></div>
+                                                                <div class="librosPersonal mb-4"> <?php echo $DescripcionResultadoTipo2; ?> </div>  
+                                                                <div class="librosPersonal mb-2">Libros:
                                                                 <?php 
 
                                                                 include("funciones/abrir_conexion.php");
@@ -199,7 +208,7 @@
                                                                 while($resultadoLibrosTipo2 = mysqli_fetch_array($librosTipo2)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoLibrosTipo2['nombre']." - ".$resultadoLibrosTipo2['descripcion']; ?>
+                                                                       <a href="<?php echo $resultadoLibrosTipo2['descripcion']; ?>"><?php echo $resultadoLibrosTipo2['nombre']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -219,7 +228,7 @@
                                                                 while($resultadoCursosTipo2 = mysqli_fetch_array($CursosTipo2)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']." - ".$resultadoCursosTipo2['url']; ?>
+                                                                        <a href="<?php echo $resultadoCursosTipo2['url']; ?>"><?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -228,7 +237,7 @@
 
                                                                 ?>
                                                             </div>
-                                                            <div class="linksPersonal mb-2">Links:
+                                                            <div class="linksPersonal mb-2">Frases:
                                                                 <?php 
 
                                                                 include("funciones/abrir_conexion.php");
@@ -237,7 +246,7 @@
                                                                 while($resultadoLinksTipo3 = mysqli_fetch_array($LinksTipo3)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoLinksTipo3['nombre']." - ".$resultadoLinksTipo3['descripcion']." - ".$resultadoLinksTipo3['url']; ?>
+                                                                       <?php echo $resultadoLinksTipo3['descripcion']; ?>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -263,8 +272,9 @@
                                                         </div>
 
                                                         <div class="col-lg-8">
-                                                            <div class="descripcionLaboral mb-4" style="text-align: justify"></div>
-                                                                                                                            <div class="librosPersonal mb-2">Libros:
+                                                            <div class="descripcionLaboral mb-2" style="text-align: justify"></div>
+                                                                <div class="librosPersonal mb-4"> <?php echo $DescripcionResultadoTipo3; ?> </div> 
+                                                                <div class="librosPersonal mb-2">Libros:
                                                                 <?php 
 
                                                                 include("funciones/abrir_conexion.php");
@@ -273,7 +283,7 @@
                                                                 while($resultadoLibrosTipo3 = mysqli_fetch_array($librosTipo3)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoLibrosTipo3['nombre']." - ".$resultadoLibrosTipo3['descripcion']; ?>
+                                                                       <a href="<?php echo $resultadoLibrosTipo3['descripcion']; ?>"><?php echo $resultadoLibrosTipo3['nombre']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -293,7 +303,7 @@
                                                                 while($resultadoCursosTipo3 = mysqli_fetch_array($CursosTipo3)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoCursosTipo3['nombre']." - ".$resultadoCursosTipo3['descripcion']." - ".$resultadoCursosTipo3['url']; ?>
+                                                                       <a href="<?php echo $resultadoCursosTipo3['url']; ?>"><?php echo $resultadoCursosTipo3['nombre']." - ".$resultadoCursosTipo3['descripcion']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -302,7 +312,7 @@
 
                                                                 ?>
                                                             </div>
-                                                            <div class="linksPersonal mb-2">Links:
+                                                            <div class="linksPersonal mb-2">Frases:
                                                                 <?php 
 
                                                                 include("funciones/abrir_conexion.php");
@@ -311,7 +321,7 @@
                                                                 while($resultadoLinksTipo3 = mysqli_fetch_array($LinksTipo3)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <?php echo $resultadoLinksTipo3['nombre']." - ".$resultadoLinksTipo3['descripcion']." - ".$resultadoLinksTipo3['url']; ?>
+                                                                       <?php echo $resultadoLinksTipo3['descripcion']; ?>
                                                                    </p>
                                                                    <?php 
                                                                 }

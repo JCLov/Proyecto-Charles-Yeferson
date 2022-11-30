@@ -80,7 +80,7 @@
                                             <img src="img/comunidad.jpg" class="w-75">
                                         </div>
                                         <div class="col-lg-6">
-                                            <img src="img/encuestas.jpg" class="w-75">
+                                           <a href="preguntasFormulario.php"><img src="img/encuestas.jpg" class="w-75"></a>
                                         </div>
                                     </div>
                                 </div>
