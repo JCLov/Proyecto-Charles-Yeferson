@@ -153,7 +153,7 @@
                                                                 while($resultadoCursosTipo2 = mysqli_fetch_array($CursosTipo2)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <a href="<?php echo $resultadoCursosTipo2['url']; ?>"><?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']; ?></a>
+                                                                       <a href="<?php echo $resultadoCursosTipo2['url']; ?>"><?php echo $resultadoCursosTipo2['descripcion']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -228,7 +228,7 @@
                                                                 while($resultadoCursosTipo2 = mysqli_fetch_array($CursosTipo2)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                        <a href="<?php echo $resultadoCursosTipo2['url']; ?>"><?php echo $resultadoCursosTipo2['nombre']." - ".$resultadoCursosTipo2['descripcion']; ?></a>
+                                                                        <a href="<?php echo $resultadoCursosTipo2['url']; ?>"><?php echo $resultadoCursosTipo2['descripcion']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }
@@ -303,7 +303,7 @@
                                                                 while($resultadoCursosTipo3 = mysqli_fetch_array($CursosTipo3)){
                                                                    ?>
                                                                    <p class="small text-muted px-2 mb-1">
-                                                                       <a href="<?php echo $resultadoCursosTipo3['url']; ?>"><?php echo $resultadoCursosTipo3['nombre']." - ".$resultadoCursosTipo3['descripcion']; ?></a>
+                                                                       <a href="<?php echo $resultadoCursosTipo3['url']; ?>"><?php echo $resultadoCursosTipo3['descripcion']; ?></a>
                                                                    </p>
                                                                    <?php 
                                                                 }

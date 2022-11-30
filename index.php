@@ -27,9 +27,6 @@
                 $sesionSeparado = explode(",", $sesion);
                 //se guarda la cedula 
                 $cedula = $sesionSeparado[1];
-
-                include("funciones/abrir_conexion.php");
-                include("funciones/cerrar_conexion.php");
             ?>
             <div class="container-fluid">
                 <div class="row">
@@ -80,7 +77,7 @@
                                             <img src="img/comunidad.jpg" class="w-75">
                                         </div>
                                         <div class="col-lg-6">
-                                           <a href="preguntasFormulario.php"><img src="img/encuestas.jpg" class="w-75"></a>
+                                           <a href="introduccionFormulario.php"><img src="img/encuestas.jpg" class="w-75"></a>
                                         </div>
                                     </div>
                                 </div>

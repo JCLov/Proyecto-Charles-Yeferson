@@ -27,9 +27,6 @@
                 $sesionSeparado = explode(",", $sesion);
                 //se guarda la cedula 
                 $cedula = $sesionSeparado[1];
-
-                include("funciones/abrir_conexion.php");
-                include("funciones/cerrar_conexion.php");
             ?>
             <div class="container-fluid">
                 <div class="row">
